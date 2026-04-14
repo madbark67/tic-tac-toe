@@ -2,15 +2,18 @@ require_relative "board"
 require_relative "player"
 
 class Game 
+
+  attr_reader :board, :players, :current_index
   def initialize
     @board = Board.new()
     @players = []
     @current_index = 0
+    @players << Player.new("Player 1", 'X')
+    @players << Player.new("Player 2", 'O')
   end
 
   def play 
-    @players << Player.new("Player 1", 'X')
-    @players << Player.new("Player 2", 'O')
+
 
     while !@board.win? && !@board.draw?
 
